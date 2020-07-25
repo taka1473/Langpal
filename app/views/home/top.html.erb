@@ -6,8 +6,8 @@
     <div id="chat-container" class="f-item">
       <h1>チャット欄</h1>
       <div id="posts">
-        <input type="text" data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room= 1 > // 投稿フォーム
-        <%= render "/rooms/post", collection: @posts %>
+        <input type="text" data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room= "<%= 1 %>" > // 投稿フォーム
+        <%= render "/rooms/post", posts: @posts %>
       </div>
     </div>
     <div id="room-container" class="f-item">
