@@ -1,0 +1,10 @@
+<% rooms.each do |room| %>
+  <%= link_to room, class: 'room' do %>
+      <div class="room-item">
+        <i class="fas fa-door-open fa-5x"></i>
+      </div>
+      <div class="room-item">
+        <%= room.name %>
+      </div>
+  <% end %>
+<% end %>
