@@ -1,6 +1,6 @@
-<header class="mb-4">
+<header>
   <nav class="navbar navbar-expand-sm navbar-light bg-light border">
-    <a class="navbar-brand" href="/">WeightLog</a>
+    <a class="navbar-brand" href="/">Langpal</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -13,6 +13,7 @@
             <%= User %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to 'プロフィール編集', edit_user_registration_path, class: "dropdown-item" %>
             <div class="dropdown-divider"></div>
             <%= link_to 'Logout', destroy_user_session_path, {method: :delete, data: {confirm: 'ログアウトしますか？'}, class: "dropdown-item"} %>
           </div>

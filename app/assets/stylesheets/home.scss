@@ -1,5 +1,20 @@
+
+/* ページ全体 */
+#wrapper{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    width: 100%;
+    height: 80px;
+}
+
 .f-container{
-   display:flex; 
+   display: flex;
+   width: 100%;
+   flex: 1 1 100%;
 }
 
 .f-item{
@@ -9,8 +24,80 @@
 #chat-container{
     border-left: solid 1px black;
     border-right: solid 1px black;
+    position: relative;
+    overflow: scroll;
 }
 
+
+/* chat関係 */
+
+.post-container{
+    margin-top: 30px;
+    
+}
+
+.post-block-mine{
+    margin: 10px 10px 0 10px;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.post-block-others{
+    margin: 10px 10px 0 10px;
+    text-align: left;
+    display: flex;
+}
+
+.post{
+    font-size: 20px;
+    display: inline-block;
+    border-radius: 10px;
+    padding: 0 10px;
+    box-shadow: 2px 2px 3px;
+    overflow-wrap: break-word;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.post-div{
+    width: 55%;
+}
+
+.post-div p{
+    margin: 0;
+}
+
+.icon_image{
+    display: inline-block;
+    width: 60px;
+    height: 50px;
+}
+
+.post-mine{
+    background-color: #87cefa;
+    text-align: left;
+}
+
+.post-others{
+    background-color: #eee;
+    
+}
+
+.input-div{
+    
+}
+
+.input{
+    margin: 0 auto;
+    width: 80%;
+    position: absolute;
+    bottom: 10px;
+    border-radius: 10px;
+}
+
+
+/* room関係 */
 .room{
     display:flex;
     padding: 5px;
@@ -27,3 +114,4 @@
 .fa-door-open{
     color: #87cefa;
 }
+

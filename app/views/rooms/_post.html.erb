@@ -1,3 +1,21 @@
-<% posts.each do |post| %>
-  <p><%= post.message %></p>
-<% end %>
+<div class="post-container">
+  <% posts.each do |post| %>
+    <% if post.user_id == current_user.id %>
+      <div class="post-block-mine">
+        <div class="post-div">
+          <p><%= current_user.name %></>
+          <div class="post post-mine"><%= post.message %></div>
+        </div>
+        <img src=<%= current_user.img %> class = "icon_image">
+      </div>
+    <% else %>
+      <div class="post-block-others">
+        <img src=<%= post.user.img %> class = "icon_image">
+        <div class="post-div">
+          <p><%= post.user.name  %></p>
+          <div class="post post-others"><%= post.message %></div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
