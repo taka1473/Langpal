@@ -22,14 +22,17 @@ header{
 }
 
 #chat-container{
-    border-left: solid 1px black;
-    border-right: solid 1px black;
+    border-left: solid 3px #b8c4cc;
+    border-right: solid 3px #b8c4cc;
     position: relative;
-    overflow: scroll;
 }
 
 
 /* chat関係 */
+
+#post{
+    max-height: 650px;
+}
 
 .post-container{
     margin-top: 30px;
@@ -85,17 +88,22 @@ header{
 }
 
 .input-div{
-    
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
 }
 
 .input{
-    margin: 0 auto;
-    width: 80%;
-    position: absolute;
-    bottom: 10px;
-    border-radius: 10px;
+    width: 70%;
+    height: 30px;
+    border-radius: 10px 0px 0px 10px;
 }
 
+.btn-primary{
+    border-radius: 0 10px 10px 0;
+}
 
 /* room関係 */
 .room{
@@ -103,15 +111,19 @@ header{
     padding: 5px;
     height: 100px;
     width: 300px;
-    background-color: #eee;
+    background-color: #7d9eb3;
+    border-radius: 5px;
     margin-bottom: 10px;
+    margin-left : 20px;
 }
 
-.room-item{
-    
+.room-name{
+      text-decoration: none;
+      color: white;
 }
 
 .fa-door-open{
-    color: #87cefa;
+    color: #005e99
+;
 }
 

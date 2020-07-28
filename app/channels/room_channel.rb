@@ -11,12 +11,10 @@ class RoomChannel < ApplicationCable::Channel
   def speak(message)
     Post.create(message: message['message'][0], user_id: message['message'][1].to_i, room_id: message['message'][2].to_i)
     if current_user.id = message['message'][1]
-      cls_post = "post post-mine"
-      cls_block = "post-block-mine"
+      bool = "t"
     else
-      cls_post = "post post-others"
-      cls_block = "post-block-others"
+      bool = "f"
     end
-    ActionCable.server.broadcast('room_channel', message: message['message'][0], cls_post: cls_post, cls_block: cls_block)#フロントに返す
+    ActionCable.server.broadcast('room_channel', message: message['message'][0], bool: bool, name: message['message'][3], image: message["message"][4])#フロントに返す
   end
 end

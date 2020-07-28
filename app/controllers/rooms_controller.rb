@@ -2,6 +2,9 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id])
     @posts = @room.posts
+    unless @room.user_rooms.find_by(user_id: current_user.id)
+      current_user.user_rooms.create(room_id: @room.id)
+    end
   end
   
   def create

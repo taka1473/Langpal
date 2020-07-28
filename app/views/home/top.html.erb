@@ -3,15 +3,20 @@
     <div id="user-container" class="f-item">
       ユーザー情報
     </div>
+    
     <div id="chat-container" class="f-item">
       <h1>チャット欄</h1>
       <div id="posts">
         <%= render "/rooms/post", posts: @posts%>
       </div>
       <div class="input-div">
-        <input type="text" data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room= "<%= 1 %>"  class="input"  >
+        <input type="text" id="input" class="input"  placeholder="  say something..." data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room= "<%= 1 %>" data-name="<%= current_user.name %>" data-image="<%= current_user.image %>" >
+        <button id="submit-btn" class="btn-primary" data-user="<%= current_user.id %>" data-room= "<%= 1 %>" data-name="<%= current_user.name %>" data-image="<%= current_user.image %>">
+          <i class="fas fa-share"></i>
+        </button>
       </div>
     </div>
+    
     <div id="room-container" class="f-item">
       <h2>トークルーム作成</h2>
       <%= form_with model: @room do |f| %>

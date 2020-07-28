@@ -1,9 +1,9 @@
 <% rooms.each do |room| %>
   <%= link_to room, class: 'room' do %>
-      <div class="room-item">
+      <div class="room-door">
         <i class="fas fa-door-open fa-5x"></i>
       </div>
-      <div class="room-item">
+      <div class="room-name">
         <%= room.name %>
       </div>
   <% end %>

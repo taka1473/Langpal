@@ -1,7 +1,7 @@
-<div class="post-container">
+<div id="post-container"  class="post-container">
   <% posts.each do |post| %>
     <% if post.user_id == current_user.id %>
-      <div class="post-block-mine">
+      <div class="post-block post-block-mine">
         <div class="post-div">
           <p><%= current_user.name %></>
           <div class="post post-mine"><%= post.message %></div>
@@ -9,7 +9,7 @@
         <img src=<%= current_user.img %> class = "icon_image">
       </div>
     <% else %>
-      <div class="post-block-others">
+      <div class="post-block post-block-others">
         <img src=<%= post.user.img %> class = "icon_image">
         <div class="post-div">
           <p><%= post.user.name  %></p>
