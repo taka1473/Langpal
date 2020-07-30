@@ -1,0 +1,22 @@
+<% users.each do |user| %>
+  <div class="user-info">
+    <div class="user-info-container">
+      <div class="user-item">
+        <image src="<%= user.img %>" class="user-image"></image>
+      </div>
+      <div class="user-item">
+        <p class="user-name"><%= user.name %></p>
+      </div>
+      <div class="user-item user-native">
+        <p class="language">native: <%= user.native %></p>
+      </div>
+      <div class="user-item user-study">
+        <i class="fas fa-arrows-alt-h"></i>
+        <p class="language">studied: <%=user.study %></p>
+      </div>
+    </div>
+    <div class="user-intro">
+      <%= user.intro %>
+    </div>
+  </div>
+<% end %>

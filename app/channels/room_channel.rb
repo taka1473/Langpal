@@ -15,6 +15,6 @@ class RoomChannel < ApplicationCable::Channel
     else
       bool = "f"
     end
-    ActionCable.server.broadcast('room_channel', message: message['message'][0], bool: bool, name: message['message'][3], image: message["message"][4])#フロントに返す
+    ActionCable.server.broadcast('room_channel', message: message['message'][0], bool: bool, name: message['message'][3], image: message["message"][4], room: message['message'][2])#フロントに返す
   end
 end

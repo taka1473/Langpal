@@ -5,6 +5,7 @@ class HomeController < ApplicationController
       @rooms = current_user.rooms.where.not(id: 1)
       @nonrooms = Room.where.not(id: UserRoom.where(user_id: current_user.id).pluck(:room_id)).where.not(id: 1)
       @posts = Post.where(room_id: 1).last(9)
+      @users = User.all
     end
   end
 end

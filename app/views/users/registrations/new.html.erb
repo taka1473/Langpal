@@ -12,6 +12,16 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
+  
+  <div class="field">
+    <%= f.label :native, "Native language" %><br />
+    <%= f.select :native, ["English", "Japanese", "Chinese"], autofocus: true, autocomplete: "native" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :study, "Studying language" %><br />
+    <%= f.select :study, ["English", "Japanese", "Chinese"], autofocus: true, autocomplete: "study" %>
+  </div>
 
   <div class="field">
     <%= f.label :password %>

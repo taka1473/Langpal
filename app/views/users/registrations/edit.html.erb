@@ -16,7 +16,22 @@
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
-
+  
+  <div class="field">
+    <%= f.label :native, "Native language" %><br />
+    <%= f.select :native, ["English", "Japanese", "Chinese"], autofocus: true, autocomplete: "native" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :study, "Studying language" %><br />
+    <%= f.select :study, ["English", "Japanese", "Chinese"], autofocus: true, autocomplete: "study" %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :intro, "Introduce yourself" %><br />
+    <%= f.text_area :intro, autofocus: true, autocomplete: "introduction" %>
+  </div>
+  
   <div class="field">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "new-password" %>

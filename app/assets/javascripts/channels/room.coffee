@@ -13,10 +13,12 @@ App.room = App.cable.subscriptions.create "RoomChannel",
     if data["bool"] == "t"
       $('#posts').append('<div class="post-block post-block-mine"><div class="post-div"><p>'+data["name"]+'</><div class="post post-mine">'+data["message"]+'</div></div><img src='+data["image"]+' class = "icon_image"></div>')
     else
-      $('#posts').append('<div class="post-block post-block-others"><img src='+data["image"]+' class = "icon_image"><div class="post-div"><p>'+data["name"]+'</p><div class="post post-others">'+data["message"]+'</div></div></div>')
-    postBlocks = document.getElementsByClassName("post-block")
-    postBlock = postBlocks[0]
-    $(postBlock).remove();
+      $('#posts').append('<div class="post-block post-block-others"><img src="'+data["image"]+'" class = "icon_image"><div class="post-div"><p>'+data["name"]+'</p><div class="post post-others">'+data["message"]+'</div></div></div>')
+    end  
+    if data["room"] = 1
+      postBlocks = document.getElementsByClassName("post-block")
+      postBlock = postBlocks[0]
+      $(postBlock).remove();
 
   speak: (message) ->
     @perform 'speak', message: message　#サーバーサイドのspeakアクションにmessageパラメータを渡す

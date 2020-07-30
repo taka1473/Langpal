@@ -1,9 +1,15 @@
 <p><%= "ルーム名：#{@room.name}" %></p>
 
-<input type="text" data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room="<%= @room.id %>"> // 投稿フォーム
 
 <%= link_to 'ロビーに戻る', root_path %>
 
 <div id="posts">
   <%= render "post", posts: @posts %>
-</div
+</div>
+
+<div class="input-div">
+  <input type="text" id="input" class="input"  placeholder="  say something..." data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room= "<%= @room.id %>" data-name="<%= current_user.name %>" data-image="<%= current_user.image %>" >
+  <button id="submit-btn" class="btn-primary" data-user="<%= current_user.id %>" data-room= "<%= @room.id %>" data-name="<%= current_user.name %>" data-image="<%= current_user.image %>">
+    <i class="fas fa-share"></i>
+  </button>
+</div>
