@@ -1,0 +1,30 @@
+<div id="form-wrapper">
+  <div id="room-form-div">
+    <p><text class="new-room">New Room</text><span class="close-btn">×</span></p>
+    <div id="room-form">
+      <%= form_with model: @room do |f| %>
+      <div class="form-group">
+        <ul>
+          <li><%= f.label :name, 'Room Name *', {class: 'controll-label'} %></li>
+          <li><%= f.text_field :name, {class: 'form-controll'} %></li>
+        </ul>
+      </div>
+      <div class="form-group">
+        <ul>
+          <li><%= f.label :comment, 'Comment *', {class: 'controll-label'} %></li>
+          <li><%= f.text_area :comment, {class: 'form-controll'} %></li>
+        </ul>
+      </div>
+      <div class="form-group">
+        <ul>
+          <li><%= f.label :password, {class: 'controll-label'} %></li>
+          <li><%= f.text_field :password, {class: 'form-controll'} %></li>
+        </ul>
+      </div>
+        <div class="btn-div">
+          <%= f.submit :class => 'btn btn-primary create-room-btn' %>
+        </div>
+    <% end %>
+    </div>
+  </div>
+</div>

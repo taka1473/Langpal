@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_29_064338) do
+ActiveRecord::Schema.define(version: 2020_08_02_132815) do
 
   create_table "posts", force: :cascade do |t|
     t.string "message"
@@ -25,6 +25,10 @@ ActiveRecord::Schema.define(version: 2020_07_29_064338) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "comment"
+    t.string "password"
+    t.integer "host_id"
+    t.string "gender"
   end
 
   create_table "user_rooms", force: :cascade do |t|
@@ -50,6 +54,7 @@ ActiveRecord::Schema.define(version: 2020_07_29_064338) do
     t.string "native"
     t.string "study"
     t.text "intro"
+    t.string "gender"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

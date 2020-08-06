@@ -4,15 +4,14 @@
       <div class="user-item">
         <image src="<%= user.img %>" class="user-image"></image>
       </div>
-      <div class="user-item">
-        <p class="user-name"><%= user.name %></p>
-      </div>
-      <div class="user-item user-native">
-        <p class="language">native: <%= user.native %></p>
-      </div>
-      <div class="user-item user-study">
-        <i class="fas fa-arrows-alt-h"></i>
-        <p class="language">studied: <%=user.study %></p>
+      <div class="user-item info-div">
+        <ul>
+          <li class="user-name"><%= user.name %></li>
+          <li class="language">native: <%= user.native %></li>
+          <div class="study">
+            <li><i class="fas fa-arrows-alt-h"></i><span class="language"> study:<%=user.study %></span></li>
+          </div>
+        </ul>
       </div>
     </div>
     <div class="user-intro">

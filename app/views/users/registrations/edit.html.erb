@@ -1,68 +1,83 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h1 id="edit-profile-title">Edit Profile</h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+<div id="edit-user-form" class="row">
+  <div class="col-sm-8 offset-2">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="field form-group">
+          <%= f.label :name %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+        </div>
+      
+        <div class="field form-group">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autocomplete: "email" %>
+        </div>
+      
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+      </div>
+      
+      <div class="col-sm-6">
+        <div class="field form-group">
+          <%= f.label :native, "Native language" %><br />
+          <%= f.select :native, ["English", "Japanese", "Chinese"], autofocus: true, autocomplete: "native" %>
+        </div>
+        
+        <div class="field form-group">
+          <%= f.label :study, "Studying language" %><br />
+          <%= f.select :study, ["English", "Japanese", "Chinese"], autofocus: true, autocomplete: "study" %>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row  ">
+      <div class="col field form-group ">
+        <%= f.label :intro, "Introduce yourself" %><br />
+        <%= f.text_area :intro, autofocus: true, autocomplete: "introduction", class: 'form-introduction' %>
+      </div>
+    </div>
+    
+    <div class="row  ">
+      <div class="field form-group col-6">
+        <%= f.label :password, 'New password' %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+        <% if @minimum_password_length %>
+          <br />
+          <em><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+      </div>
+    
+      <div class="field form-group">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+    </div>
+    
+    <div class="field form-group ">
+      <%= f.label :img, "user image" %><br/>
+      <%= f.file_field :img %>
+    </div>
   
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-  
-  <div class="field">
-    <%= f.label :native, "Native language" %><br />
-    <%= f.select :native, ["English", "Japanese", "Chinese"], autofocus: true, autocomplete: "native" %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :study, "Studying language" %><br />
-    <%= f.select :study, ["English", "Japanese", "Chinese"], autofocus: true, autocomplete: "study" %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :intro, "Introduce yourself" %><br />
-    <%= f.text_area :intro, autofocus: true, autocomplete: "introduction" %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+    <div class="field form-group current-password">
+      <%= f.label :current_password %> <i>( :required)</i><br />
+      <%= f.password_field :current_password, autocomplete: "current-password" %>
+    </div>
+    
+  <div class="row">
+      <div class="actions col">
+        <%= f.submit "Update" %>
+      </div>
     <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <button class="back-btn"><%= link_to "Back to lobby　→", root_path %></button>
   </div>
   
-  <div class="field">
-    <%= f.label :img %><br/>
-    <%= f.file_field :img %>
+    <div id="cancel-div">
+      <h3>Cancel my account</h3>
+      <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

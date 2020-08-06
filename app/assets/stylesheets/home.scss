@@ -4,11 +4,17 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    z-index: 1;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
 }
 
 header{
     width: 100%;
-    height: 80px;
+    height: 60px;
 }
 
 .f-container{
@@ -18,23 +24,26 @@ header{
 }
 
 #user-container{
-    width: 35%;
+    width: 25%;
 }
 
 #chat-container{
-    width: 40%;
-    border-left: solid 3px #b8c4cc;
+    width: 50%;
     border-right: solid 3px #b8c4cc;
     position: relative;
 }
 
 #room-container{
     width: 24%;
+    overflow-y: scroll;
+    position: relative;
 }
 
 h1{
-    text-decoration: underline;
-    font-family: 'arial black';
+    font-family: 'Century Gothic';
+    background-color: #353866;
+    color: white;
+    padding-left: 10px;
 }
 
 ::-webkit-scrollbar{
@@ -82,7 +91,6 @@ h1{
     display: inline-block;
     border-radius: 10px;
     padding: 0 10px;
-    box-shadow: 2px 2px 3px;
     overflow-wrap: break-word;
     min-width: 0;
     max-width: 100%;
@@ -104,61 +112,203 @@ h1{
 }
 
 .post-mine{
-    background-color: #87cefa;
+    background-color: #353866;
+    font-weight: lighter;
+    color: white;
     text-align: left;
     margin-right: 5px;
 }
 
 .post-others{
-    background-color: #eee;
+    background-color: white;
     margin-left: 5px;
-    
+    box-shadow: 3px 3px 5px #E9E9F2;
 }
 
 .input-div{
     position: absolute;
-    bottom: 40px;
+    bottom: 0px;
     display: flex;
+    height: 90px;
     width: 100%;
-    justify-content: center;
+    border-top: solid 1px #ddd;
 }
 
-.input{
-    width: 70%;
-    height: 30px;
-    border-radius: 10px 0px 0px 10px;
+#input{
+    width: 85%;
+    height: 100%;
+    border: none;
+    background-color: 	#FBFBFC;
 }
 
-.btn-primary{
-    border-radius: 0 10px 10px 0;
+#submit-btn{
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+    background-color: #FF7754;
+    color: white;
+    border: none;
+    margin-top: 15px;
+}
+
+.fa-share{
+    font-size: 26px;
 }
 
 /* room関係 */
+#rooms{
+    position: absolute;
+    top: 120px;
+}
+
 .room{
     display:flex;
     padding: 5px;
     height: 100px;
     width: 300px;
-    background-color: #7d9eb3;
+    background-color: #333866;
     border-radius: 5px;
     margin-bottom: 10px;
-    margin-left : 20px;
+    cursor: pointer;
+}
+
+.room:hover{
+    text-decoration: none;
+}
+
+#new-room-btn{
+    color: white;
+    border-radius: 5px;
+    background-color: #FF7754;
+    border: none;
+    padding: 10px 30px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+}
+
+#form-wrapper, #password-wrapper{
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 60px);
+    z-index: 10;
+    background-color: rgba(0,0,0,0.7);
+}
+
+#room-form-div, #password-div{
+    width: 500px;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    border: solid 1px black;
+}
+
+#room-form, .password-form{
+    padding: 5px 40px 40px 40px;
+}
+
+#room-form-div p, #password-div p{
+    font-size: 25px;
+    margin: 0 12px;
+}
+
+.btn-div{
+    text-align: right;
+}
+
+.new-room{
+    border-bottom: solid 1px;
+}
+
+#room-form-div span, #password-div span{
+    float: right;
+    padding-bottom: 5px;
+    width: 30px;
+    text-align: right;
+}
+
+#incorrect-message{
+    color: red;
+    display: none;
+}
+
+.close-btn:hover{
+    cursor: pointer;
+}
+
+.form-controll{
+    width: 100%;
 }
 
 .room-name{
     text-decoration: none;
     color: white;
+    font-weight: bold;
+}
+
+.room-comment{
+    color: white;
 }
 
 .fa-door-open{
-    color: #005e99
-;
+    color: white;
+}
+
+#non-rooms .room{
+    background-color: #666666;
+}
+
+#question-btn{
+    border: none;
+    border-radius: 13px;
+    width: 26px;
+    height: 26px;
+    margin-left: 20px;
+}
+
+#response{
+    padding: 40px;
+    background-color: white;
+    z-index: 12;
+    display: none;
+    position: absolute;
+    border: solid 1px #ddd;
+    color: #FF7754;
+}
+
+.show{
+    display: block;
+}
+
+#response ul{
+    list-style: square;    
+}
+
+.ref{
+    display: inline-block;
+}
+
+.ref-j{
+    background-color: #333866;
+}
+
+.ref-n{
+    background-color: #666666;
 }
 
 /* ユーザー情報 */
 #user-container{
     height: 100%;
     
+}
+
+#user-container h1{
+    width: 25%;
+    margin-top: 0;
 }
 
 #users{
@@ -171,61 +321,55 @@ h1{
     position: absolute;
 }
 
+.user-item ul{
+    width: 210px;
+}
+
 .user-info{
-    border: solid 1px black;
-    height: 250px;
-    margin: 20px 10px 0 10px;
-    display: flex;
-    text-align: center;
-    border-radius: 20px;
-    background-color: #dcdcdc;
+    background-color: white;
+    border-left: solid 4px #ddd;
+    margin: 5px;
+    max-height: 300px;
+    overflow-y: auto;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px #E9E9F2;
+}
+
+.info-div{
+    padding-left: 6px;
 }
 
 .user-info-container{
     display: flex;
-    flex-direction: column;
 }
 
-.user-info image{
-    justify-content: center;
+.user-info-container li{
+    list-style: none;
 }
 
 .user-image{
-    border-radius: 75px;
-}
-
-.user-item{
-    width: 200px;
-    margin: 0;
-    padding: 0;
-    line-height: 1em;
+    height: 100px;
+    width: 100px;
+    border-radius: 50px;
 }
 
 .user-name{
-    font-size: 20px;
     font-weight: bold;
+    font-size: 20px;
 }
 
-.user-native{
-    text-align: left;
-    margin: 0 0 5px 5px;
-}
-
-.user-study{
-    text-align: right;
-    margin-right: 5px;
-}
-
-.language {
+.language{
     display: inline-block;
-    background-color: white;
-    border: solid 1px;
-    border-radius: 10px;
-    padding: 3px;
-    margin: 0;
+    border: solid 1px #ddd;
+    background-color: #fafafa;
+    border-radius: 5px;
+    padding: 0 5px;
 }
 
 .user-intro{
-    text-align: left;
-    overflow: scroll;
+    display: none;
+}
+
+.study{
+    text-align: right;
 }

@@ -1,0 +1,87 @@
+#edit-profile-title{
+    font-family: 'Century Gothic';
+    background-color: #353866;
+    color: white;
+    padding-left: 10px;
+}
+
+.form-introduction{
+    width: 70%;
+    height: 100px;
+}
+
+.current-password{
+    margin-top: 80px;
+}
+
+#cancel-div{
+    margin-top: 80px;
+    border-top: solid 1px #353866;
+}
+
+#edit-user-form input, #signup-form input{
+    width: 300px;
+}
+
+#edit-user-form label{
+    color: #353866;
+    margin: 0;
+}
+
+.current-password i{
+    color: #FF7754;
+}
+
+.actions input{
+    background-color: #FF7754;
+    color: white;
+    font-size: 25px;
+}
+
+.back-btn{
+    background-color: white;
+    margin-right: 30px;
+    padding: 0 10px;
+}
+
+.back-btn a{
+    font-size: 25px;
+    color: #FF7754;
+}
+
+.back-btn:hover{
+    background-color: #FF7754;
+}
+
+.back-btn a:hover{
+    color: white;
+}
+
+
+#login-div{
+    margin-top: 40px;
+}
+
+#login-div input{
+    margin-bottom: 30px;
+}
+
+.login-btn{
+    text-align: right;
+}
+
+.login-btn input{
+    padding: 0 20px;
+}
+
+#signup-form label{
+    margin: 20px 0 0;
+}
+
+#btn-div{
+    margin-top: 60px;
+}
+
+.to-login-btn{
+    padding: 0 40px;
+}

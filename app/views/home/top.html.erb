@@ -1,35 +1,31 @@
-<% if user_signed_in? %>
-  <div id="container" class="f-container">
-    <div id="user-container" class="f-item">
-      <h1>Users</h1>
-      <div id="users">
-        <%= render "users" , users: @users %>
-      </div>
+<div id="top-wrapper">
+  <div id="image-container" style='background-image: url("<%= asset_path('people-2567915_1920.jpg') %>");'>
+  </div>
+  
+  <div id="top-container">
+    <div id="top-title">
+      <h2>Langpal</h2>
+      <p>Do a language exchange with people of the same gender!</p>
+      <p>Have a chat and teach lunguage each other!</p>
     </div>
+    <div class="top-btn-div">
+      <a href="users/sign_up">
+        <div class="top-btn">
+          <p class="btnText">Signup</p>
+          <div class="btnTwo">
+            <p class="btnText2"><i class="fas fa-arrow-right"></i></p>
+          </div>
+        </div>
+      </a>
     
-    <div id="chat-container" class="f-item">
-      <h1>Lobby Chat</h1>
-      <div id="posts">
-        <%= render "/rooms/post", posts: @posts %>
-      </div>
-      <div class="input-div">
-        <input type="text" id="input" class="input"  placeholder="  say something..." data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room= "<%= 1 %>" data-name="<%= current_user.name %>" data-image="<%= current_user.image %>" >
-        <button id="submit-btn" class="btn-primary" data-user="<%= current_user.id %>" data-room= "<%= 1 %>" data-name="<%= current_user.name %>" data-image="<%= current_user.image %>">
-          <i class="fas fa-share"></i>
-        </button>
-      </div>
-    </div>
-    
-    <div id="room-container" class="f-item">
-      <h1>Chat Rooms</h1>
-      <%= form_with model: @room do |f| %>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-        <%= f.submit %>
-      <% end %>
-
-      <%= render 'room', rooms: @rooms %> <!-- 参加済みルーム -->
-      <%= render 'room', rooms: @nonrooms %> <!-- 未参加ルーム -->
+      <a href="users/sign_in">
+        <div class="top-btn">
+          <p class="btnText">Login</p>
+          <div class="btnTwo">
+            <p class="btnText2"><i class="fas fa-arrow-right"></i></p>
+          </div>
+       </div>
+      </a>
     </div>
   </div>
-<% end %>
+</div>

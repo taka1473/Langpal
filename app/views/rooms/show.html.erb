@@ -1,15 +1,34 @@
-<p><%= "ルーム名：#{@room.name}" %></p>
-
-
-<%= link_to 'ロビーに戻る', root_path %>
-
-<div id="posts">
-  <%= render "post", posts: @posts %>
-</div>
-
-<div class="input-div">
-  <input type="text" id="input" class="input"  placeholder="  say something..." data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room= "<%= @room.id %>" data-name="<%= current_user.name %>" data-image="<%= current_user.image %>" >
-  <button id="submit-btn" class="btn-primary" data-user="<%= current_user.id %>" data-room= "<%= @room.id %>" data-name="<%= current_user.name %>" data-image="<%= current_user.image %>">
-    <i class="fas fa-share"></i>
-  </button>
+<div id="container" class="f-container">
+  <div id="user-container" class="f-item">
+    <h1>Members</h1>
+    <div id="users">
+      <%= render "./home/users" , users: @users %>
+    </div>
+  </div>
+  
+  
+  <div id="chat-container" class="f-item">
+    <h1><%= "Room： #{@room.name}" %></h1>
+    <div id="posts">
+      <%= render "/rooms/post", posts: @posts %>
+    </div>
+    <div class="input-div">
+      <input type="text" id="input" class="input"  placeholder="  say something..." data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room= "<%= 1 %>" data-name="<%= current_user.name %>" data-image="<%= current_user.img %>" >
+      <button id="submit-btn" class="btn-primary" data-user="<%= current_user.id %>" data-room= "<%= 1 %>" data-name="<%= current_user.name %>" data-image="<%= current_user.img %>">
+        <i class="fas fa-share"></i>
+      </button>
+    </div>
+  </div>
+  
+  <div id="caution-container">
+    <h2 id="caution-h">Notice <i class="fas fa-caret-down"></i></h2>
+    <ul>
+      <li>This room can be deleted only by the user who created it.</li>
+      <li>If no chating for the last 1 hour, this room will be automatically deleted.</li>
+    </ul>
+     <% if @room.host_id == current_user.id %>
+        <button id="delete-room-btn"><%= link_to 'Delete Room', @room, method: :delete, data: { confirm: "Are you sure to delete this room?"} %></button>
+      <% end %>
+    <%= link_to 'Back to Lobby←', root_path , {class: 'lobby-btn'}%>
+  </div>
 </div>

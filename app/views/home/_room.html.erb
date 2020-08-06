@@ -1,10 +1,24 @@
 <% rooms.each do |room| %>
-  <%= link_to room, class: 'room' do %>
-      <div class="room-door">
-        <i class="fas fa-door-open fa-5x"></i>
-      </div>
+<% if room.users.where(id: current_user.id).any? %>
+  <% bool = "true" %>
+<% end %>
+<% if room.password? %>
+  <% password = 'any' %>
+<% end %>
+  <div class="room" data-room="<%= room.id %>" data-password="<%= password %>" data-bool="<%= bool %>">
+    <div class="room-door">
+      <i class="fas fa-door-open fa-5x"></i>
+    </div>
+    <div>
       <div class="room-name">
         <%= room.name %>
+        <% if room.password? %>
+          <i class="fas fa-key"></i>
+        <% end%>
       </div>
-  <% end %>
+      <div class="room-comment">
+        <%= room.comment %>
+      </div>
+    </div>
+  </div>
 <% end %>

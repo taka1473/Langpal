@@ -1,44 +1,59 @@
-<h2>Sign up</h2>
+<h1>Sign up</h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
+<div class="row">
+  <div id="signup-form" class="col-sm-8 offset-2">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "users/shared/error_messages", resource: resource %>
+    
+    <div class="field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :gender, "Gender" %><br />
+      <%= f.select :gender, ["Male", "Female"], autofocus: true, autocomplete: "gender" %>
+    </div>
   
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :native, "Native language" %><br />
+      <%= f.select :native, ["English", "Japanese", "Chinese"], autofocus: true, autocomplete: "native" %>
+    </div>
+    
+    <div class="field">
+      <%= f.label :study, "Studying language" %><br />
+      <%= f.select :study, ["English", "Japanese", "Chinese"], autofocus: true, autocomplete: "study" %>
+    </div>
   
-  <div class="field">
-    <%= f.label :native, "Native language" %><br />
-    <%= f.select :native, ["English", "Japanese", "Chinese"], autofocus: true, autocomplete: "native" %>
-  </div>
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
   
-  <div class="field">
-    <%= f.label :study, "Studying language" %><br />
-    <%= f.select :study, ["English", "Japanese", "Chinese"], autofocus: true, autocomplete: "study" %>
-  </div>
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+  
+    <div class="row" id="btn-div">
+      <div class="actions col-sm-6">
+        <%= f.submit "Sign up" %>
+      </div>
+    <% end %>
+  
+      <div class="col-sm-6">
+        <sm>you have account?　→　　</sm>
+        <button class="back-btn to-login-btn"><%= render "users/shared/links" %></button>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

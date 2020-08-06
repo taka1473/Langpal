@@ -1,3 +1,50 @@
 // Place all the styles related to the room controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#caution-container{
+    width: 24%;
+    background-color: #666;
+    color: white;
+}
+
+#caution-container h2{
+    text-align: center;
+   
+}
+
+#caution-container ul{
+    list-style: square;
+    padding-left: 30px;
+    display: none;
+}
+
+.lobby-btn{
+    position: absolute;
+    display: inline-block;
+    bottom: 0;
+    width: 328px;
+    height: 90px;
+    background-color: #FF7754;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+} 
+
+.lobby-btn:hover{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#delete-room-btn{
+    background-color: #8b0000;
+    float: right;
+    position: absolute;
+    bottom: 120px;
+    width: 328px;
+    height: 60px;
+}
+
+#delete-room-btn a{
+    color: white;
+}

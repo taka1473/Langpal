@@ -1,0 +1,52 @@
+<% if user_signed_in? %>
+  <div id="container" class="f-container">
+    <%= render "new_room_form" %>
+    <%= render "room_password_form" %>
+    <div id="user-container" class="f-item">
+      <h1>Users</h1>
+      <div id="users">
+        <%= render "users" , users: @users %>
+      </div>
+    </div>
+    
+    <div id="chat-container" class="f-item">
+      <h1>Lobby Chat</h1>
+      <div id="posts">
+        <%= render "/rooms/post", posts: @posts %>
+      </div>
+      <div class="input-div">
+        <% if current_user.gender == 'Male' %>
+          <% room_devider = 1 %>
+        <% else %>
+          <% room_devider = 2 %>
+        <% end %>
+        <input type="text" id="input" class="input"  placeholder="  say something..." data-behavior="room_speaker" data-user="<%= current_user.id %>" data-room= "<%= room_devider %>" data-name="<%= current_user.name %>" data-image="<%= current_user.img %>" >
+        <button id="submit-btn"  data-user="<%= current_user.id %>" data-room= "<%= room_devider %>" data-name="<%= current_user.name %>" data-image="<%= current_user.img %>">
+          <i class="fas fa-share"></i>
+        </button>
+      </div>
+    </div>
+    
+    <div id="room-container" class="f-item">
+      <h1>Chat Rooms</h1>
+      <div>
+        <button id="new-room-btn">+ Create New Room</button>
+        <button id="question-btn">?</button>
+      </div>
+      <div id="response">
+        <ul>
+          <li><span class="ref ref-j">　　</span></span> : room you have joined</li>
+          <li><span class="ref ref-n">　　</span> : room you have <span>not</span> joined</li>
+          <li>password is not necessary</li>
+        </ul>
+      </div>
+
+      <div id="rooms">
+        <%= render 'room', rooms: @rooms %> <!-- 参加済みルーム -->
+        <div id="non-rooms">
+          <%= render 'room', rooms: @nonrooms %>
+        </div> <!-- 未参加ルーム -->
+      </div>
+    </div>
+  </div>
+<% end %>
